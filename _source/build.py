@@ -523,19 +523,11 @@ def svc_card(k, cls="svc-card"):
             f'<span class="more">View service {I_CHEV}</span></a>')
 
 grid_html = ""
-for gid, gt, gs, keys in GROUPS:
+for gid, gt, gs, keys in HOME_GROUPS:
     grid_html += f'''<div class="svc-row">
   <div class="svc-row-head"><h2>{gt}</h2><p>{gs}</p></div>
   <div class="svc-cards">{"".join(svc_card(k) for k in keys)}</div>
 </div>'''
-grid_html += f'''<a class="succ-card" href="{url('succession')}">
-  <div class="grid-paper" aria-hidden="true"></div>
-  <div>
-    <h2>Succession planning &amp; business transition</h2>
-    <p>For owners planning what happens to their business next. We value the business and find the right next owner, partner or operator, so it keeps running and you realise the value you've built.</p>
-  </div>
-  <span class="btn btn--green">Explore succession planning</span>
-</a>'''
 
 FAQS = [
   ("What does a virtual CFO actually do?",
