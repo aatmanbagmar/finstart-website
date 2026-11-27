@@ -81,6 +81,10 @@ SVC = {
 SVC["succession"] = dict(
     name="Succession planning & business transition", nav="Succession",
     short="Plan what happens to your business next, and find the right next owner, partner or operator.")
+# Homepage "What we do": succession shown as its own group, placed before Tax and structure
+HOME_GROUPS = GROUPS[:2] + [
+  ("succession", "Succession and transition", "For owners planning who takes the business forward.", ["succession"]),
+] + GROUPS[2:]
 ROUTES = [
     ("A full sale", "To a buyer from your industry, an investor or a family office."),
     ("A partner or investor", "Someone takes a stake, you take some value out and stay involved."),
@@ -431,8 +435,7 @@ home = f'''<section class="hero" aria-labelledby="hero-title">
       <h2 id="services-title">What we do</h2>
       <p class="lede">Use any service on its own, or bring several together under a single virtual CFO engagement.</p>
     </div>
-    {"".join(ledger_group(*g) for g in GROUPS)}
-    <a class="callout" href="succession-planning.html"><span class="callout-q">Planning what happens to your business next?</span><span class="callout-a">Succession planning &amp; business transition {I_CHEV}</span></a>
+    {"".join(ledger_group(*g) for g in HOME_GROUPS)}
     <p style="margin-top:2.5rem"><a class="text-link" href="services.html">See everything included in each service</a></p>
   </div>
 </section>
